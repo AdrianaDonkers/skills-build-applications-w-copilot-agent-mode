@@ -11,13 +11,15 @@ function Teams() {
   }, []);
 
   return (
-    <div>
-      <h1>Teams</h1>
-      <ul>
-        {teams.map(team => (
-          <li key={team._id}>{team.name}</li>
-        ))}
-      </ul>
+    <div className="card">
+      <div className="card-body">
+        <h1 className="card-title">Teams</h1>
+        <ul className="list-group">
+          {teams.map(team => (
+            <li key={team._id} className="list-group-item">{team.name}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
