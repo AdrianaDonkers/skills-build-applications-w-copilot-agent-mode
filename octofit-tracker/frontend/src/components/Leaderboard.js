@@ -4,8 +4,17 @@ function Leaderboard() {
   const [leaderboard, setLeaderboard] = useState([]);
 
   useEffect(() => {
-    fetch('https://obscure-broccoli-6r7xxgx56vh5w6g-8000.app.github.dev/api/leaderboard/')
-      .then(response => response.json())
+    fetch('https://obscure-broccoli-6r7xxgx56vh5w6g-8000.app.github.dev/api/leaderboard/', {
+      mode: 'cors',
+      redirect: 'follow'
+    })
+      .then(response => {
+        console.log('Response:', response);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then(data => setLeaderboard(data))
       .catch(error => console.error('Error fetching leaderboard:', error));
   }, []);

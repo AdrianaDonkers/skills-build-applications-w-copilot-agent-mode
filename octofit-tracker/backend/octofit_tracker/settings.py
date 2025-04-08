@@ -49,6 +49,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
+    'octofit_tracker.middleware.LoggingMiddleware',
+    'octofit_tracker.middleware.CorsForceMiddleware',
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -135,6 +137,27 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Allow all origins for CORS
 CORS_ALLOW_ALL_ORIGINS = True
+
+# Bypass authentication for API endpoints
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = [
+    'content-type',
+    'authorization',
+    'x-requested-with',
+    'accept',
+    'origin',
+    'user-agent',
+    'referer',
+    'x-csrftoken',
+]
+CORS_ALLOW_METHODS = [
+    'GET',
+    'POST',
+    'PUT',
+    'DELETE',
+    'OPTIONS',
+]
+CORS_EXPOSE_HEADERS = ['Content-Type', 'Authorization']
 
 # Add the codespace Django REST API endpoint suffix
 CODESPACE_API_SUFFIX = "https://obscure-broccoli-6r7xxgx56vh5w6g-8000.app.github.dev"
