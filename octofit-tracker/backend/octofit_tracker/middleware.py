@@ -16,8 +16,10 @@ class CorsForceMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
+        logging.debug(f"CorsForceMiddleware applied to request: {request.method} {request.path}")
         response = self.get_response(request)
         response["Access-Control-Allow-Origin"] = "*"
         response["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS"
         response["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
+        logging.debug(f"CORS headers added: {response.headers}")
         return response
