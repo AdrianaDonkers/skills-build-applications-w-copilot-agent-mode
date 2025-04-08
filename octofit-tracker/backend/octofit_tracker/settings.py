@@ -133,3 +133,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Allow all origins for CORS
 CORS_ALLOW_ALL_ORIGINS = True
+
+# Add the codespace Django REST API endpoint suffix
+CODESPACE_API_SUFFIX = "https://obscure-broccoli-6r7xxgx56vh5w6g-8000.app.github.dev"
