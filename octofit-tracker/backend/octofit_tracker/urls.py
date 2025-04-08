@@ -22,9 +22,9 @@ from .views import UserViewSet, TeamViewSet, ActivityViewSet, LeaderboardViewSet
 router = DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'teams', TeamViewSet)
-router.register(r'activity', ActivityViewSet)
 router.register(r'leaderboard', LeaderboardViewSet)
 router.register(r'workouts', WorkoutViewSet)
+router.register(r'activities', ActivityViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

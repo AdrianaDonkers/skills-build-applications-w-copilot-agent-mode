@@ -24,9 +24,12 @@ class TeamSerializer(serializers.ModelSerializer):
         fields = ['_id', 'name', 'members']
 
 class ActivitySerializer(serializers.ModelSerializer):
+    _id = ObjectIdField()
+    user = UserSerializer()  # Use nested serializer for the user field
+
     class Meta:
         model = Activity
-        fields = '__all__'
+        fields = ['_id', 'user', 'description']
 
 class LeaderboardSerializer(serializers.ModelSerializer):
     _id = ObjectIdField()
@@ -37,6 +40,9 @@ class LeaderboardSerializer(serializers.ModelSerializer):
         fields = ['_id', 'team', 'score']
 
 class WorkoutSerializer(serializers.ModelSerializer):
+    _id = ObjectIdField()
+    user = UserSerializer()  # Use nested serializer for the user field
+
     class Meta:
         model = Workout
-        fields = '__all__'
+        fields = ['_id', 'user', 'duration']
