@@ -6,19 +6,22 @@ import Teams from './components/Teams';
 import Users from './components/Users';
 import Workouts from './components/Workouts';
 import './App.css';
+import './custom.css'; // Import custom styles
 
 function App() {
   return (
     <Router>
-      <div className="container">
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <div className="container-fluid">
+        <nav className="navbar navbar-expand-lg custom-bg-primary sticky-top">
           <div className="container-fluid">
-            <Link className="navbar-brand" to="/">OctoFit Tracker</Link>
+            <Link className="navbar-brand d-flex align-items-center" to="/">
+              OctoFit Tracker
+            </Link>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="navbar-nav">
+              <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
                   <Link className="nav-link" to="/activities">Activities</Link>
                 </li>
@@ -45,9 +48,17 @@ function App() {
             <Route path="/teams" element={<Teams />} />
             <Route path="/users" element={<Users />} />
             <Route path="/workouts" element={<Workouts />} />
-            <Route path="/" element={<h1 className="text-center">Welcome to OctoFit Tracker</h1>} />
+            <Route path="/" element={
+              <div className="text-center my-4">
+                <img src="/octofitapp-small.png" alt="OctoFit Logo" height="100" className="mb-3" />
+                <h1 className="text-primary">Welcome to OctoFit Tracker</h1>
+              </div>
+            } />
           </Routes>
         </div>
+        <footer className="custom-bg-primary text-white text-center py-3 mt-4">
+          <p>© 2023 OctoFit Tracker. All rights reserved.</p>
+        </footer>
       </div>
     </Router>
   );

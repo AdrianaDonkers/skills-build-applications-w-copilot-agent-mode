@@ -1,0 +1,8 @@
+/* Custom styles to override Bootstrap */
+.custom-bg-primary {
+  background-color: #c8a2c8 !important; /* Lilac */
+}
+
+.custom-text-primary {
+  color: #c8a2c8 !important; /* Lilac */
+}
